@@ -1,12 +1,22 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import text from "./constants/text.constants";
-
-import "./config/i18n.config";
+import React, { useState } from "react";
+import { ThemeProvider } from "styled-components";
+import GlobalTheme from "./styles/global.style";
+import { lightTheme, darkTheme } from "./theme";
 
 function App() {
-  const { t } = useTranslation();
-  return <div className="App">{t(text.welcome)}</div>;
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  return (
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <>
+        <GlobalTheme />
+        <button onClick={toggleTheme}>Mudar tema</button>
+      </>
+    </ThemeProvider>
+  );
 }
 
 export default App;
