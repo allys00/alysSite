@@ -1,5 +1,8 @@
 import React, { ReactElement } from "react";
 import { ThemeMode } from "../../constants/utils.constants";
+import Switch from "react-switch";
+import { FiMoon, FiSun } from "react-icons/fi";
+
 import "./ToggleTheme.scss";
 
 interface IProps {
@@ -9,16 +12,19 @@ interface IProps {
 
 export default ({ onToggle, value }: IProps): ReactElement => {
   return (
-    <div className="theme-switch-wrapper">
-      <label className="theme-switch" htmlFor="checkbox">
-        <input
-          type="checkbox"
-          id="checkbox"
-          onChange={onToggle}
-          checked={value === ThemeMode.LIGHT}
-        />
-        <div className="slider round"></div>
-      </label>
-    </div>
+    <Switch
+      onChange={onToggle}
+      checked={value === ThemeMode.LIGHT}
+      uncheckedIcon={
+        <div className="fix-icons">
+          <FiMoon size={20} color="#ffffff" />
+        </div>
+      }
+      checkedIcon={
+        <div className="fix-icons">
+          <FiSun size={20} color="#ffffff" />
+        </div>
+      }
+    />
   );
 };

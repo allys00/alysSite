@@ -4,6 +4,7 @@ import USAFlagIcon from "../Icons/USAFlagIcon";
 import useLanguage from "../../hooks/useLanguage";
 import { LanguageMode } from "../../constants/utils.constants";
 
+import './LanguageSelect.scss'
 export default React.memo(() => {
   const [language, onChangeLanguage] = useLanguage();
 
@@ -12,7 +13,7 @@ export default React.memo(() => {
   };
 
   return (
-    <>
+    <div className="languages-icons">
       <BrazilFlagIcon
         onClick={() => changeLanguage(LanguageMode.PT)}
         width={30}
@@ -25,6 +26,6 @@ export default React.memo(() => {
         height={25}
         style={{ opacity: language === LanguageMode.EN ? 1 : 0.5 }}
       />
-    </>
+    </div>
   );
 });

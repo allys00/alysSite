@@ -1,0 +1,39 @@
+.side-bar {
+  width: 100px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 0;
+  .logo {
+    margin-top: 1rem;
+    .avatar-img {
+      border-radius: 50%;
+      width: 70px;
+    }
+  }
+
+  .menu {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    li {
+      padding: 1.5rem 0;
+    }
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    .languages-icons {
+      width: 70%;
+    }
+  }
+}
