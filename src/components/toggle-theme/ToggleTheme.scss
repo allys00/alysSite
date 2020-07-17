@@ -9,9 +9,9 @@
   }
   .theme-switch {
     display: inline-block;
-    height: 34px;
+    height: 30px;
     position: relative;
-    width: 60px;
+    width: 56px;
     input {
       display: none;
     }
@@ -30,11 +30,11 @@
         background-color: #fff;
         bottom: 4px;
         content: "";
-        height: 26px;
+        height: 22px;
         left: 4px;
         position: absolute;
         transition: 0.4s;
-        width: 26px;
+        width: 22px;
       }
     }
     input:checked + .slider {

@@ -13,7 +13,6 @@ export default () => {
   function onChangeTheme(): void {
     const newTheme = theme === ThemeMode.LIGHT ? ThemeMode.DARK : ThemeMode.LIGHT;
     setTheme(newTheme);
-    console.log(theme);
     sessionStorage.setItem("theme", newTheme);
   }
 
