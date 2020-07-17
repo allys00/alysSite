@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components";
 import GlobalTheme from "./styles/global.style";
 import { lightTheme, darkTheme } from "./theme";
+import ToggleTheme from "./components/toggle-theme/ToggleTheme";
+import { ThemeMode } from "./constants/utils.constants";
+import useTheme from "./hooks/useTheme";
 
 function App() {
-  const [theme, setTheme] = useState("light");
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  const [theme, onChangeTheme] = useTheme();
 
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme === ThemeMode.LIGHT ? lightTheme : darkTheme}>
       <>
         <GlobalTheme />
-        <button onClick={toggleTheme}>Mudar tema</button>
+        <ToggleTheme onToggle={onChangeTheme} value={theme} />
       </>
     </ThemeProvider>
   );
