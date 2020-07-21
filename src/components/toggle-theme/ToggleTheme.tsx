@@ -15,6 +15,8 @@ export default ({ onToggle, value }: IProps): ReactElement => {
     <Switch
       onChange={onToggle}
       checked={value === ThemeMode.LIGHT}
+      onColor="#fff"
+      onHandleColor="#333333"
       uncheckedIcon={
         <div className="fix-icons">
           <FiMoon size={20} color="#ffffff" />
@@ -22,7 +24,7 @@ export default ({ onToggle, value }: IProps): ReactElement => {
       }
       checkedIcon={
         <div className="fix-icons">
-          <FiSun size={20} color="#ffffff" />
+          <FiSun size={20} color="#333333" />
         </div>
       }
     />
