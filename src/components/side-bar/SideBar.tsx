@@ -5,9 +5,9 @@ import { ThemeMode } from "../../constants/utils.constants";
 import { FiHome, FiMessageSquare, FiInfo } from "react-icons/fi";
 import { BsNewspaper } from "react-icons/bs";
 import { withTheme } from "styled-components";
-import myAvatar from "../../assets/images/myAvatar.svg";
 
 import "./SideBar.scss";
+import MyPhoto from "../my-photo/MyPhoto";
 
 interface IProps {
   onChangeTheme(): void;
@@ -39,7 +39,7 @@ function SideBar({ onChangeTheme, themeMode, theme }: IProps) {
   return (
     <nav className="side-bar">
       <div className="logo">
-        <img className="avatar-img" src={myAvatar} alt="avatar" />
+        <MyPhoto style={{ width: "80px" }} />
       </div>
       <ul className="menu">
         {menuItens.map(({ icon: Icon, router }, index) => (
