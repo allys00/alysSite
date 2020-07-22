@@ -10,7 +10,8 @@ export default () => {
   useEffect(() => {
     const language = sessionStorage.getItem("language");
     if (language) {
-      setLanguage(language as LanguageMode);
+      i18next.changeLanguage(language);
+      onChangeLanguage(language as LanguageMode);
     }
   }, []);
 

@@ -4,12 +4,13 @@ import GlobalTheme from "./styles/global.style";
 import { lightTheme, darkTheme } from "./theme";
 import useTheme from "./hooks/useTheme";
 import SideBar from "./components/side-bar/SideBar";
-import { ThemeMode } from "./constants/utils.constants";
+import { ThemeMode, RoutesENUM } from "./constants/utils.constants";
 import Container from "./components/container/Container";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Home from "./pages/home/Home";
 
 import "./App.scss";
-import Home from "./pages/home/Home";
+import Blog from "./pages/blog/Blog";
 
 function App() {
   const [theme, onChangeTheme] = useTheme();
@@ -20,13 +21,15 @@ function App() {
         <main className="main-container">
           <SideBar onChangeTheme={onChangeTheme} themeMode={theme} />
           <Container>
-            <Router>
-              <Switch>
-                <Route path="/">
-                  <Home />
-                </Route>
-              </Switch>
-            </Router>
+            <Switch>
+              <Route exact path={RoutesENUM.HOME}>
+                <Home />
+              </Route>
+              <Route exact path={RoutesENUM.BLOG}>
+                <Blog />
+              </Route>
+              <Redirect to={RoutesENUM.HOME} />
+            </Switch>
           </Container>
         </main>
       </>

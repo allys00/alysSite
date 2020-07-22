@@ -1,13 +1,14 @@
 import React from "react";
 import ToggleTheme from "../toggle-theme/ToggleTheme";
 import LanguageSelect from "../language-select/LanguageSelect";
-import { ThemeMode } from "../../constants/utils.constants";
+import { ThemeMode, RoutesENUM } from "../../constants/utils.constants";
 import { FiHome, FiMessageSquare, FiInfo } from "react-icons/fi";
-import { BsNewspaper } from "react-icons/bs";
+import { RiArticleLine } from "react-icons/ri";
 import { withTheme } from "styled-components";
+import MyPhoto from "../my-photo/MyPhoto";
+import { Link } from "react-router-dom";
 
 import "./SideBar.scss";
-import MyPhoto from "../my-photo/MyPhoto";
 
 interface IProps {
   onChangeTheme(): void;
@@ -18,24 +19,24 @@ interface IProps {
 const menuItens = [
   {
     icon: FiHome,
-    router: "home",
+    router: RoutesENUM.HOME,
   },
   {
-    icon: BsNewspaper,
-    router: "blog",
+    icon: RiArticleLine,
+    router: RoutesENUM.BLOG,
   },
   {
     icon: FiInfo,
-    router: "about-me",
+    router: RoutesENUM.ABOUT_ME,
   },
   {
     icon: FiMessageSquare,
-    router: "contact",
+    router: RoutesENUM.CONTACT,
   },
 ];
 
 function SideBar({ onChangeTheme, themeMode, theme }: IProps) {
-  const currentRoute = "home";
+  const currentRoute = RoutesENUM.HOME;
   return (
     <nav className="side-bar">
       <div className="logo">
@@ -44,7 +45,9 @@ function SideBar({ onChangeTheme, themeMode, theme }: IProps) {
       <ul className="menu">
         {menuItens.map(({ icon: Icon, router }, index) => (
           <li key={index} className={currentRoute === router ? "active" : ""}>
-            <Icon size={30} color={theme.main} />
+            <Link to={router}>
+              <Icon size={25} color={theme.main} />
+            </Link>
           </li>
         ))}
       </ul>
